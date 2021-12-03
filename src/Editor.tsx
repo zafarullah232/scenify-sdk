@@ -83,6 +83,16 @@ class Editor extends EventManager {
     this.handlers.objectsHandler.removeById(id)
   }
 
+  // CROP
+  public initCrop = () => {
+    this.handlers.cropHandler.initCrop()
+  }
+  public applyCrop = () => {
+    this.handlers.cropHandler.applyCrop()
+  }
+  public cancelCrop = () => {
+    this.handlers.cropHandler.cancelCrop()
+  }
   // HISTORY
   public undo = () => {
     this.handlers.historyHandler.undo()

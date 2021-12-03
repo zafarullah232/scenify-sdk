@@ -1,1 +1,1 @@
-export * from './StaticImage'
+export * from '../StaticImage'

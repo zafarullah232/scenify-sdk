@@ -12,6 +12,7 @@ import ScrollbarHandler from './ScrollbarHandler'
 import DesignHandler from './design-handler/design-handler'
 import GuidelinesHandler from './GuidelinesHandler'
 import BackgroundHandler from './BackgroundHandler'
+import CropHandler from './CropHandler'
 class Handlers {
   canvas: FabricCanvas
   public frameHandler: FrameHandler
@@ -27,7 +28,7 @@ class Handlers {
   public designHandler: DesignHandler
   public guidelinesHandler: GuidelinesHandler
   public backgroundHandler: BackgroundHandler
-
+  public cropHandler: CropHandler
   constructor(props: RootHandlerOptions) {
     this.propertiesToInclude = PROPERTIES_TO_INCLUDE
     this.canvas = props.canvas
@@ -50,6 +51,7 @@ class Handlers {
     this.designHandler = new DesignHandler(handlerOptions)
     this.guidelinesHandler = new GuidelinesHandler(handlerOptions)
     this.backgroundHandler = new BackgroundHandler(handlerOptions)
+    this.cropHandler = new CropHandler(handlerOptions)
   }
 
   destroy = () => {}

@@ -19,6 +19,8 @@ export interface IEditorContext {
   setZoomRatio: (value: number) => void
   contextMenuRequest: ContextMenuRequest
   setContextMenuRequest: (value: ContextMenuRequest) => void
+  cropMenu: any
+  setCropMenu: any
 }
 
 export const EditorContext = createContext<IEditorContext>({
@@ -31,7 +33,9 @@ export const EditorContext = createContext<IEditorContext>({
   zoomRatio: 1,
   setZoomRatio: () => {},
   contextMenuRequest: null,
-  setContextMenuRequest: () => {}
+  setContextMenuRequest: () => {},
+  cropMenu: null,
+  setCropMenu: () => {}
 })
 
 export const EditorProvider: FC = ({ children }) => {
@@ -40,6 +44,7 @@ export const EditorProvider: FC = ({ children }) => {
   const [editor, setEditor] = useState<Editor | null>(null)
   const [zoomRatio, setZoomRatio] = useState(1)
   const [contextMenuRequest, setContextMenuRequest] = useState<ContextMenuRequest>(null)
+  const [cropMenu, setCropMenu] = useState({ visible: false, top: 0, left: 0 })
   const context = {
     canvas,
     setCanvas,
@@ -50,7 +55,9 @@ export const EditorProvider: FC = ({ children }) => {
     zoomRatio,
     setZoomRatio,
     contextMenuRequest,
-    setContextMenuRequest
+    setContextMenuRequest,
+    cropMenu,
+    setCropMenu
   }
 
   return <EditorContext.Provider value={context}>{children}</EditorContext.Provider>

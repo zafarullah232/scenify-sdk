@@ -161,7 +161,7 @@ class ObjectToFabric {
             top: options.top,
             left: options.left
           })
-          element.scaleToWidth(480)
+          // element.scaleToWidth(480)
         }
         resolve(element)
       } catch (err) {

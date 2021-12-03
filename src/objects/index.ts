@@ -1,6 +1,6 @@
 export * from './Frame'
 export * from './StaticText'
-export * from './static-image'
+export * from './StaticImage'
 export * from './StaticVector'
 export * from './StaticPath'
 export * from './DynamicText'
