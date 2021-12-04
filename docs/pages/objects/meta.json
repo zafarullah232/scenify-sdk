@@ -1,5 +1,5 @@
 {
-  "create": "Create",
-  "update": "Update",
-  "group": "Group"
+  "text": "Text",
+  "image": "Image",
+  "vector": "Vector"
 }
