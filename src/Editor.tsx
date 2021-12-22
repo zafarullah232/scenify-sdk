@@ -177,6 +177,14 @@ class Editor extends EventManager {
   public importFromJSON = data => {
     this.handlers.templateHandler.importFromJSON(data)
   }
+  public loadTemplateSVG = (url: string) => {
+    this.handlers.templateHandler.loadFromSVG(url)
+  }
+
+  public downloadTest = () => {
+    return this.handlers.templateHandler.downloadTest()
+  }
+
   public toSVG = () => {}
   public toPNG = (options: any) => {
     return this.handlers.designHandler.toDataURL(options)

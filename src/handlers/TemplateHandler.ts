@@ -2,6 +2,7 @@ import { ObjectType } from '../common/constants'
 import exportObject from '../utils/fabricToObject'
 import objectToFabric from '../utils/objectToFabric'
 import BaseHandler from './BaseHandler'
+import { fabric } from 'fabric'
 
 class TemplateHandler extends BaseHandler {
   exportToJSON() {
@@ -64,6 +65,30 @@ class TemplateHandler extends BaseHandler {
     this.handlers.historyHandler.clear()
     this.handlers.zoomHandler.zoomToFit()
     this.handlers.animationHandler.setTemplateAnimations()
+  }
+
+  loadFromSVG(url: string) {
+    fabric.loadSVGFromURL(url, (objects, options) => {
+      this.handlers.objectsHandler.clear()
+      this.handlers.frameHandler.setSize(options)
+      const frame = this.handlers.frameHandler.getFrame()
+      objects.forEach(object => {
+        // console.log(object.type)
+        object.set({
+          top: object.top + frame.top,
+          left: object.left + frame.left
+        })
+        this.canvas.add(object)
+        // canvas?.add(object)
+      })
+      // canvas?.requestRenderAll()
+    })
+    console.log('done')
+  }
+  downloadTest() {
+    // const frame = this.handlers.frameHandler.getFrame()
+    // const zoom = this.canvas.getZoom()
+    return this.canvas.toDataURL()
   }
 }
 export default TemplateHandler

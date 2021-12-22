@@ -53,7 +53,7 @@ class Handlers {
     this.scrollbarHandler = new ScrollbarHandler(handlerOptions)
     this.designHandler = new DesignHandler(handlerOptions)
     this.gifHandler = new GifHandler(handlerOptions)
-    this.guidelinesHandler = new GuidelinesHandler(handlerOptions)
+    // this.guidelinesHandler = new GuidelinesHandler(handlerOptions)
     this.backgroundHandler = new BackgroundHandler(handlerOptions)
     this.animationHandler = new AnimationHandler(handlerOptions)
   }

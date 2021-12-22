@@ -6,39 +6,31 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import { Input } from 'baseui/input'
 import Icons from '../../../../../components/icons'
 import { useEditor } from '../../../../../../../src'
+import { templates as tts } from '../../../../../constants/templates'
 
 function Templates() {
+  const inputFile = React.useRef<HTMLInputElement>(null)
   const editor = useEditor()
-  const { templates } = useAppContext()
-  const [value, setValue] = useState('')
+
   return (
     <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
-      <div style={{ padding: '2rem 2rem' }}>
-        <Input
-          startEnhancer={() => <Icons.Search size={18} />}
-          value={value}
-          onChange={e => setValue((e.target as any).value)}
-          placeholder="Search templates"
-          clearOnEscape
-        />
-      </div>
       <div style={{ flex: 1 }}>
         <Scrollbars>
           <div
             style={{ display: 'grid', gap: '0.5rem', padding: '0 2rem 2rem', gridTemplateColumns: '1fr 1fr' }}
           >
-            {templates.map(template => (
+            {tts.map(template => (
               <div
-                key={template.id}
+                key={template}
                 style={{
                   alignItems: 'center',
                   cursor: 'pointer',
                   border: '1px solid rgba(0,0,0,0.2)',
                   padding: '5px'
                 }}
-                onClick={() => editor.importFromJSON(template)}
+                onClick={() => editor.loadTemplateSVG(template)}
               >
-                <img width="100%" src={template.preview || 'https://via.placeholder.com/150'} alt="preview" />
+                <img width="100%" src={template} alt="preview" />
               </div>
             ))}
           </div>

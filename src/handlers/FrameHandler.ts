@@ -63,7 +63,9 @@ class FrameHandler extends BaseHandler {
 
   update = options => {
     const frame = this.getFrame()
+    console.log({ frame })
     const { width, height } = options
+    console.log({ width, height })
     frame.set('width', width)
     frame.set('height', height)
     frame.center()

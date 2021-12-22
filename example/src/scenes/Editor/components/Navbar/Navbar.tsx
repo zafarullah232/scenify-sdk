@@ -26,7 +26,7 @@ function NavbarEditor() {
   const downloadImage = async () => {
     if (editor) {
       // editor.toGif({})
-      const data = await editor.toGif({})
+      const data = await editor.downloadTest()
       if (data) {
         const a = document.createElement('a')
         // @ts-ignore
